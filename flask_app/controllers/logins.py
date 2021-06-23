@@ -19,9 +19,9 @@ def create_user():
 
     session['user_id'] = user_id
     session['email'] = request.form['email']
-    session['firstname'] = request.form['first_name']
+    session['first_name'] = request.form['first_name']
 
-    return redirect('/exam_models')
+    return redirect('/recipes')
 
 @app.route('/user/login', methods = ['POST'])
 def login_user():
@@ -43,7 +43,7 @@ def login_user():
     session['first_name'] = user['first_name']
     session['email'] = user['email']
 
-    return redirect('/exam_models')
+    return redirect('/recipes')
 
 @app.route('/logout')
 def log_out():

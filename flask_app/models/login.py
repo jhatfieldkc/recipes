@@ -22,16 +22,16 @@ class Login():
     def get_all(cls):
         query = 'SELECT * FROM users;'
 
-        connection = connectToMySQL('exam')
+        connection = connectToMySQL('recipes')
 
         results = connection.query_db(query)
 
-        exams = []
+        logins = []
 
         for result in results:
-            exams.append(cls(result))
+            logins.append(cls(result))
 
-        return exams
+        return logins
 
     @classmethod
     def create_user(cls, data):
@@ -46,7 +46,7 @@ class Login():
             'password': pw_hash
         }
 
-        connection = connectToMySQL('exam')
+        connection = connectToMySQL('recipes')
         results = connection.query_db(query, data)
 
         return results
@@ -55,7 +55,7 @@ class Login():
     def get_user_by_email(cls, data):
 
         query = "SELECT * FROM users WHERE email = %(email)s"
-        connection = connectToMySQL('exam')
+        connection = connectToMySQL('recipes')
         results = connection.query_db(query, data)
 
         return results

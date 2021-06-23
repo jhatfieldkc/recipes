@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <a href="/recipes">Dashboard</a>
+  <a href="/logout">Logout</a>
+  <body>
+    <h1>Welcome, {{session['first_name']}}!</h1>
+    <h1>{{recipe.recipe_name}}</h1>
+    <table>
+      <tr>
+        <td>Description:</td>
+        <td>{{recipe.description}}</td>
+      </tr>
+      <tr>
+        <td>Under 30 minutes:</td>
+        <td>{{recipe.under_30}}</td>
+      </tr>
+      <tr>
+        <td>Instructions:</td>
+        <td>{{recipe.instructions}}</td>
+      </tr>
+      <tr>
+        <td>Date Made:</td>
+        <td>{{recipe.date_created}}</td>
+      </tr>
+    </table>
+  </body>
+</html>

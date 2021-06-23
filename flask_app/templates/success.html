@@ -7,8 +7,29 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Logged in successfully!</h1>
     <h2>Welcome, {{session['first_name']}}!</h2>
+    <a href="/recipes/create">Create Recipe</a>
     <a href="/logout">Logout</a>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Under 30 Minutes?</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      {% for recipe in recipes %}
+      <tr>
+        <td>{{recipe.recipe_name}}</td>
+        <td>{{recipe.under_30}}</td>
+        <td>
+          <a href="/recipes/{{recipe.id}}">View</a>{% if session['user_id'] ==
+          recipe.creator.id %}
+          <a href="/recipes/{{recipe.id}}/edit">Edit</a>
+          <a href="/recipes/{{recipe.id}}/delete">Delete</a>{% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
   </body>
 </html>

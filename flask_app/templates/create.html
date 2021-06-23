@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create New Recipe</title>
+  </head>
+  <body>
+    <h1>Add New Recipe!!</h1>
+    <a href="/recipes">Dashboard</a>
+    <a href="/logout">Logout</a>
+    {% with messages = get_flashed_messages() %} {% if messages %} {% for
+    message in messages %}
+    <p>{{message}}</p>
+    {% endfor %} {% endif %} {% endwith %}
+
+    <form action="/recipes/new_recipe" method="POST">
+      Name:
+      <input type="text" name="recipe_name" id="recipe_name" /> <br />
+      Description:
+      <textarea
+        name="recipe_description"
+        id="recipe_description"
+        cols="30"
+        rows="10"
+      ></textarea>
+      <br />
+      Instructions:
+      <textarea
+        name="recipe_instructions"
+        id="recipe_instructions"
+        cols="30"
+        rows="10"
+      ></textarea>
+      <br />
+      Date Made on: <input type="date" name="date_created" id="date_created" />
+      <br />
+      Under 30 Minutes? <br />
+      Yes
+      <input
+        type="radio"
+        name="under_30"
+        id="Yes"
+        value="Yes"
+        checked="checked"
+      />
+      No
+      <input type="radio" name="under_30" id="No" value="No" />
+      <input type="submit" />
+    </form>
+  </body>
+</html>
